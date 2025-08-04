@@ -21,7 +21,7 @@ const ButtonStyles: React.CSSProperties = {
   zIndex: 6,
 }
 
-const DevSlideButton = () => {
+const DevSlideButton = ({ onClickPrev, onClickNext }: { onClickPrev: () => void, onClickNext: () => void }) => {
   return (
     <div 
       className="dev-slide__button-wrapper" 
@@ -31,9 +31,7 @@ const DevSlideButton = () => {
         type="button" 
         className="dev-slide__button dev-slide__button-prev" 
         style={ButtonStyles}
-        onClick={() => {
-          console.log("prev");
-        }}
+        onClick={onClickPrev}
       >
         <span>{"<"}</span>
       </button>
@@ -41,9 +39,7 @@ const DevSlideButton = () => {
         type="button" 
         className="dev-slide__button dev-slide__button-next" 
         style={ButtonStyles}
-        onClick={() => {
-          console.log("next");
-        }}
+        onClick={onClickNext}
       >
         <span>{">"}</span>
       </button>
