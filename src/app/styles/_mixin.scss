@@ -1,0 +1,149 @@
+// RESPONSIVE
+@mixin device__query($device) {
+  @if ($device == "pc") {
+    @media screen and (min-width: 1800px) {
+      @content;
+    }
+  } @else if ($device == "notebook") {
+    @media screen and (max-width: 1799px) {
+      @content;
+    }
+  } @else if ($device == "tablet") {
+    @media screen and (max-width: 950px) {
+      @content;
+    }
+  } @else if ($device == "notablet") {
+    @media screen and (min-width: 951px) {
+      @content;
+    }
+  } @else if ($device == "mobile") {
+    @media screen and (max-width: $width--min) {
+      @content;
+    }
+  } 
+} // @include device__query(pc) {}
+
+// 해상도에 맞춘 비율
+@function ratio_width($px, $width) {
+  @return calc($px / $width * 100vw);
+}
+
+@function ratio_height($px, $height) {
+  @return calc($px / $height * 100vh);
+}
+
+// PADDING
+@mixin padding__default($value: $padding--default) {
+  padding-left: $value;
+  padding-right: $value;
+}
+
+// THEME GRID
+@mixin grid__default($value: 0.35fr 0.65fr) {
+  display: grid;
+  grid-template-columns: $value;
+}
+@mixin grid__vertical($value: 0.45fr 0.55fr) {
+  display: grid;
+  grid-template-columns: $value;
+}
+@mixin grid__detail($value: 0.15fr 0.85fr) {
+  display: grid;
+  grid-template-columns: $value;
+}
+@mixin grid_function($value: 2) {
+  display: grid;
+  grid-template-columns: repeat($value, 1fr);
+}
+
+// FLEX
+@mixin flex__row($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+@mixin flex__column($direction: column) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+@mixin flex__row_inline($direction: row) {
+  display: inline-flex;
+  flex-direction: $direction;
+}
+
+@mixin flex__column_inline($direction: column) {
+  display: inline-flex;
+  flex-direction: $direction;
+}
+
+// POSITION
+@mixin position($type: r, $top: null, $left: null, $bottom: null, $right: null) {
+  @if($type == "a") {
+    position: absolute;
+  } @else if($type == "s") {
+    position: static;
+  } @else if($type == "st") {
+    position: sticky;
+  } @else if($type == "f") {
+    position: fixed;
+  } @else if($type == "r") {
+    position: relative;
+  }
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+} // @include position(a, 0, 0, null, 0);
+
+// WORD SKIP(...)
+@mixin word__skip($line: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// DISABLE SCROLL
+@mixin scroll__disabled {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// INPUT APPEARANCE
+@mixin input__appearance {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+// VISIBLITY
+@mixin hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: $transition--default;
+}
+
+@mixin visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+// SIZE
+@mixin size ($width: null, $height: null) {
+  width: $width;
+  height: $height;
+}
+
+// FONT
+@mixin font ($size: null, $weight: null, $line: null) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line;
+}
+
+
+// PROJECT CUSTOM
