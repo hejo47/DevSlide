@@ -1,0 +1,108 @@
+@charset "utf-8";
+// COLOR
+$bg-color--default: #040d2f;
+$bg-color--header: #EEE;
+$bg-color--blue: #0c174c;
+$border-color--default: #655c65;
+$text-color--default: #333;
+
+// PADDING
+$padding--default: 20px;
+$padding--header: 40px;
+
+
+$text-color--gray: #5B6470; 
+$text-color--disable: #7A7A7A; 
+$text-color--disable-input: #7F8A94;
+$text-color--deco-gray: #939393; 
+$text-color--essential: #FF6550;
+$text-color--placeholder: #B9C0C7; 
+$text-color--blue: #4E9CF6;
+
+$text-color--temp: #484848;
+
+
+
+$point-color--default: #FF6550;
+$point-color--second: #EDEDED;
+$point-color--third: #FF9283;
+$point-color--fourth: #83ACE8;
+
+$theme-color--default: #FF543C;
+
+$border-color--gray: #5B6470;
+$border-color--play: #A8B3BD;
+
+$button-color--default: #182D4B;
+$button-color--cancel: #F2F4F6;
+
+// FONT
+$font-family--default: "Pretendard";
+$font-weight--Thin: 100;
+$font-weight--ExtraLight: 200;
+$font-weight--Light: 300;
+$font-weight--Regular: 400;
+$font-weight--Medium: 500;
+$font-weight--SemiBold: 600;
+$font-weight--Bold: 700;
+$font-weight--ExtraBold: 800;
+$font-weight--Black: 900;
+
+// FONT-SIZE
+$font-size--logo: 2rem; // 32px
+$font-size--room: 2.2rem; // 35px
+$font-size--profile-name: 3rem; // 64px
+$font-size--profile-info: 2.5rem; // 40px
+
+$font-size--xl: 2.3rem; // 36px
+$font-size--lg: 1.9rem; // 27px
+$font-size--md: 1.6rem; // 24px
+$font-size--sl: 1.25rem; // 20px;
+$font-size--default: 1rem; // 16px;
+$font-size--ssm: 0.9375rem; // 15px;
+$font-size--sm: 0.875rem; // 14px;
+$font-size--xsm: 0.8125rem; // 13px;
+$font-size--xxsm: 0.75rem; // 12px;
+
+$font-size--setting-xl: 24px; 
+$font-size--setting-lg: 20px;
+$font-size--setting-sl: 18px;
+$font-size--setting-default: 16px;
+$font-size--setting-ssm: 15px;
+$font-size--setting-sm: 14px;
+$font-size--setting-xsm: 13px;
+$font-size--setting-xxsm: 12px;
+
+$font-size--couple-name: 1.6875rem; // 27px;
+
+// WIDTH
+// $width--min: 450px;
+$width--min: 450px;
+$width--max: 1320px;
+$max-width--mngheader: 1600px;
+$max-width--mng: 1000px;
+
+$width-pc: 1800;
+$width-notebook: 1799;
+$width-tablet: 1199;
+$width-mobile: 599;
+$width-mobile-basic: 375;
+
+$width-input-setting: 160px;
+
+// PADDING
+$padding--mobile: 24px;
+
+// TRANSITION
+$transition--morefast: 0.1s linear all;
+$transition--fast: 0.3s linear all;
+$transition--default: 0.5s linear all;
+$transition--template: .42s ease all;
+
+// BORDER-RADIUS
+$radius--default: 8px;
+$radius--default-sm: 4px;
+$radius--button-list: 999px;
+
+// GAP
+$col-gap--setting-basic: 8px;
