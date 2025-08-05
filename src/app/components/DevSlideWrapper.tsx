@@ -64,6 +64,8 @@ const DevSlideWrapper = forwardRef<HTMLDivElement, DevSlideWrapperProps>(
       console.log("prev");
       if(currentSlide > 0) {
         setCurrentSlide(currentSlide - 1);
+      } else {
+        setCurrentSlide(totalSlide - 1);
       }
     }
 
@@ -71,12 +73,10 @@ const DevSlideWrapper = forwardRef<HTMLDivElement, DevSlideWrapperProps>(
       console.log("next");
       if(currentSlide < totalSlide - 1) {
         setCurrentSlide(currentSlide + 1);
+      } else {
+        setCurrentSlide(0);
       }
     }
-
-    useEffect(() => {
-      console.log(`Current slide: ${currentSlide}`);
-    }, [currentSlide]);
 
     useEffect(() => {
       if(currentSlide >= totalSlide) {
