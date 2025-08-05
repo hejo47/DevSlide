@@ -4,6 +4,8 @@ import React, { forwardRef, useEffect, useRef, useState } from "react";
 import DevSlideButton from "./DevSlideButton";
 import DevSlidePagination from "./DevSlidePagination";
 import "../styles/devSlide.scss";
+import { useSlideContext } from "../contexts/SlideContext";
+
 interface DevSlideWrapperProps {
   children: React.ReactNode;
   totalSlide: number;
@@ -11,12 +13,19 @@ interface DevSlideWrapperProps {
 
 const DevSlideWrapper = forwardRef<HTMLDivElement, DevSlideWrapperProps>(
   ({ children, totalSlide }, ref) => {
+    const { currentSlide, setCurrentSlide, setTotalSlide } = useSlideContext();
+    
     const [clientWidth, setClientWidth] = useState(0);
     const [containerWidth, setContainerWidth] = useState(0);
 
-    const [currentSlide, setCurrentSlide] = useState(0);
-
     const containerRef = useRef<HTMLDivElement>(null);
+
+    // totalSlide를 Context에 설정
+    useEffect(() => {
+      if (totalSlide > 0) {
+        setTotalSlide(totalSlide);
+      }
+    }, [totalSlide, setTotalSlide]);
 
     const WrapperStyles: React.CSSProperties = {
       height: "100vh",
@@ -57,7 +66,6 @@ const DevSlideWrapper = forwardRef<HTMLDivElement, DevSlideWrapperProps>(
       if(containerRef.current && clientWidth > 0) {
         const translateX = -(currentSlide * clientWidth);
         containerRef.current.style.transform = `translateX(${translateX}px)`;
-        console.log(`Slide ${currentSlide}: translateX(${translateX}px)`);
       }
     }, [currentSlide, clientWidth]);
 
@@ -85,7 +93,7 @@ const DevSlideWrapper = forwardRef<HTMLDivElement, DevSlideWrapperProps>(
       } else if(currentSlide < 0) {
         setCurrentSlide(totalSlide - 1);
       }
-    }, [currentSlide, totalSlide]);
+    }, [currentSlide, totalSlide, setCurrentSlide]);
 
     return (
       <div 
@@ -93,7 +101,11 @@ const DevSlideWrapper = forwardRef<HTMLDivElement, DevSlideWrapperProps>(
         className="dev-slide__wrapper" 
         style={WrapperStyles}
       >
-        <div ref={containerRef} className="dev-slide__container" style={ContainerStyles}>
+        <div 
+          ref={containerRef} 
+          className="dev-slide__container"
+          style={ContainerStyles}
+        >
           {children}
         </div>
         <DevSlideButton 
