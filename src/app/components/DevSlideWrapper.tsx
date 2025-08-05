@@ -2,7 +2,8 @@
 
 import React, { forwardRef, useEffect, useRef, useState } from "react";
 import DevSlideButton from "./DevSlideButton";
-
+import DevSlidePagination from "./DevSlidePagination";
+import "../styles/devSlide.scss";
 interface DevSlideWrapperProps {
   children: React.ReactNode;
   totalSlide: number;
@@ -98,6 +99,13 @@ const DevSlideWrapper = forwardRef<HTMLDivElement, DevSlideWrapperProps>(
         <DevSlideButton 
           onClickPrev={onClickPrev}
           onClickNext={onClickNext}
+        />
+        <DevSlidePagination 
+          totalSlide={totalSlide}
+          currentSlide={currentSlide}
+          onClick={(index) => {
+            setCurrentSlide(index);
+          }} 
         />
       </div>
     )

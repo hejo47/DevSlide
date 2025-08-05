@@ -1,0 +1,9 @@
+.dev-slide {
+  &__pagination {
+    background-color: #fff;
+    border: none;
+    &-active {
+      background-color: red;
+    }
+  }
+}
